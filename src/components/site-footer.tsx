@@ -15,7 +15,7 @@ export function SiteFooter() {
               Boost<span className="text-gradient">Followers</span>
             </div>
             <p className="text-muted-foreground mt-3 max-w-xs">
-              La plateforme de croissance sociale n°1. Plus de 200 services pour développer vos réseaux.
+              The #1 social growth platform. 200+ services to grow your social media.
             </p>
           </div>
           {Object.entries(grouped).slice(0, 3).map(([platform, items]) => (
@@ -34,10 +34,10 @@ export function SiteFooter() {
           ))}
         </div>
         <div className="mt-10 pt-6 border-t border-border flex flex-col sm:flex-row justify-between gap-3 text-xs text-muted-foreground">
-          <div>© {new Date().getFullYear()} BoostFollowers — Tous droits réservés.</div>
+          <div>© {new Date().getFullYear()} BoostFollowers — All rights reserved.</div>
           <div className="flex gap-5">
-            <a href="/services" className="hover:text-foreground">Tous les tarifs</a>
-            <a href="/auth" className="hover:text-foreground">Connexion</a>
+            <a href="/services" className="hover:text-foreground">All pricing</a>
+            <a href="/auth" className="hover:text-foreground">Sign in</a>
           </div>
         </div>
       </div>
