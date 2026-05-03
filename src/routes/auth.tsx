@@ -4,8 +4,8 @@ import { useState } from "react";
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Connexion / Inscription — BoostFollowers" },
-      { name: "description", content: "Créez votre compte gratuit ou connectez-vous." },
+      { title: "Sign in / Sign up — BoostFollowers" },
+      { name: "description", content: "Create your free account or sign in." },
     ],
   }),
   component: Auth,
@@ -28,18 +28,18 @@ function Auth() {
                   mode === m ? "bg-gradient-primary text-primary-foreground shadow-glow" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                {m === "signup" ? "Créer un compte" : "Se connecter"}
+                {m === "signup" ? "Create account" : "Sign in"}
               </button>
             ))}
           </div>
 
           <h1 className="font-display text-2xl font-bold">
-            {mode === "signup" ? "Créez votre compte gratuit" : "Bon retour parmi nous"}
+            {mode === "signup" ? "Create your free account" : "Welcome back"}
           </h1>
           <p className="text-sm text-muted-foreground mt-1">
             {mode === "signup"
-              ? "30 secondes, sans carte bancaire."
-              : "Connectez-vous pour gérer vos commandes."}
+              ? "30 seconds, no credit card required."
+              : "Sign in to manage your orders."}
           </p>
 
           <form
@@ -48,24 +48,24 @@ function Auth() {
           >
             <input
               type="email"
-              placeholder="Adresse email"
+              placeholder="Email address"
               className="w-full rounded-xl bg-background/60 border border-border px-4 py-3 text-sm focus:outline-none focus:border-primary transition"
             />
             <input
               type="password"
-              placeholder="Mot de passe"
+              placeholder="Password"
               className="w-full rounded-xl bg-background/60 border border-border px-4 py-3 text-sm focus:outline-none focus:border-primary transition"
             />
             <button
               type="submit"
               className="w-full rounded-xl bg-gradient-primary text-primary-foreground px-4 py-3 font-medium shadow-glow hover:opacity-90 transition"
             >
-              {mode === "signup" ? "Créer mon compte" : "Se connecter"}
+              {mode === "signup" ? "Create my account" : "Sign in"}
             </button>
           </form>
 
           <p className="text-xs text-muted-foreground text-center mt-6">
-            En continuant, vous acceptez nos conditions d'utilisation.
+            By continuing, you agree to our terms of service.
           </p>
         </div>
       </div>
