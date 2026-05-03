@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ServicesRouteImport } from './routes/services'
 import { Route as BuyYoutubeViewsRouteImport } from './routes/buy-youtube-views'
 import { Route as BuyYoutubeSubscribersRouteImport } from './routes/buy-youtube-subscribers'
 import { Route as BuyYoutubeLikesRouteImport } from './routes/buy-youtube-likes'
@@ -31,8 +32,14 @@ import { Route as BuyInstagramFollowersRouteImport } from './routes/buy-instagra
 import { Route as BuyGoogleReviewsRouteImport } from './routes/buy-google-reviews'
 import { Route as BuyFacebookLikesRouteImport } from './routes/buy-facebook-likes'
 import { Route as BuyFacebookFollowersRouteImport } from './routes/buy-facebook-followers'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as IndexRouteImport } from './routes/index'
 
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BuyYoutubeViewsRoute = BuyYoutubeViewsRouteImport.update({
   id: '/buy-youtube-views',
   path: '/buy-youtube-views',
@@ -143,6 +150,11 @@ const BuyFacebookFollowersRoute = BuyFacebookFollowersRouteImport.update({
   path: '/buy-facebook-followers',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -151,6 +163,7 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/buy-facebook-followers': typeof BuyFacebookFollowersRoute
   '/buy-facebook-likes': typeof BuyFacebookLikesRoute
   '/buy-google-reviews': typeof BuyGoogleReviewsRoute
@@ -173,9 +186,11 @@ export interface FileRoutesByFullPath {
   '/buy-youtube-likes': typeof BuyYoutubeLikesRoute
   '/buy-youtube-subscribers': typeof BuyYoutubeSubscribersRoute
   '/buy-youtube-views': typeof BuyYoutubeViewsRoute
+  '/services': typeof ServicesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/buy-facebook-followers': typeof BuyFacebookFollowersRoute
   '/buy-facebook-likes': typeof BuyFacebookLikesRoute
   '/buy-google-reviews': typeof BuyGoogleReviewsRoute
@@ -198,10 +213,12 @@ export interface FileRoutesByTo {
   '/buy-youtube-likes': typeof BuyYoutubeLikesRoute
   '/buy-youtube-subscribers': typeof BuyYoutubeSubscribersRoute
   '/buy-youtube-views': typeof BuyYoutubeViewsRoute
+  '/services': typeof ServicesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
   '/buy-facebook-followers': typeof BuyFacebookFollowersRoute
   '/buy-facebook-likes': typeof BuyFacebookLikesRoute
   '/buy-google-reviews': typeof BuyGoogleReviewsRoute
@@ -224,11 +241,13 @@ export interface FileRoutesById {
   '/buy-youtube-likes': typeof BuyYoutubeLikesRoute
   '/buy-youtube-subscribers': typeof BuyYoutubeSubscribersRoute
   '/buy-youtube-views': typeof BuyYoutubeViewsRoute
+  '/services': typeof ServicesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/auth'
     | '/buy-facebook-followers'
     | '/buy-facebook-likes'
     | '/buy-google-reviews'
@@ -251,9 +270,11 @@ export interface FileRouteTypes {
     | '/buy-youtube-likes'
     | '/buy-youtube-subscribers'
     | '/buy-youtube-views'
+    | '/services'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/auth'
     | '/buy-facebook-followers'
     | '/buy-facebook-likes'
     | '/buy-google-reviews'
@@ -276,9 +297,11 @@ export interface FileRouteTypes {
     | '/buy-youtube-likes'
     | '/buy-youtube-subscribers'
     | '/buy-youtube-views'
+    | '/services'
   id:
     | '__root__'
     | '/'
+    | '/auth'
     | '/buy-facebook-followers'
     | '/buy-facebook-likes'
     | '/buy-google-reviews'
@@ -301,10 +324,12 @@ export interface FileRouteTypes {
     | '/buy-youtube-likes'
     | '/buy-youtube-subscribers'
     | '/buy-youtube-views'
+    | '/services'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthRoute: typeof AuthRoute
   BuyFacebookFollowersRoute: typeof BuyFacebookFollowersRoute
   BuyFacebookLikesRoute: typeof BuyFacebookLikesRoute
   BuyGoogleReviewsRoute: typeof BuyGoogleReviewsRoute
@@ -327,10 +352,18 @@ export interface RootRouteChildren {
   BuyYoutubeLikesRoute: typeof BuyYoutubeLikesRoute
   BuyYoutubeSubscribersRoute: typeof BuyYoutubeSubscribersRoute
   BuyYoutubeViewsRoute: typeof BuyYoutubeViewsRoute
+  ServicesRoute: typeof ServicesRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/buy-youtube-views': {
       id: '/buy-youtube-views'
       path: '/buy-youtube-views'
@@ -485,6 +518,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BuyFacebookFollowersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -497,6 +537,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthRoute: AuthRoute,
   BuyFacebookFollowersRoute: BuyFacebookFollowersRoute,
   BuyFacebookLikesRoute: BuyFacebookLikesRoute,
   BuyGoogleReviewsRoute: BuyGoogleReviewsRoute,
@@ -519,6 +560,7 @@ const rootRouteChildren: RootRouteChildren = {
   BuyYoutubeLikesRoute: BuyYoutubeLikesRoute,
   BuyYoutubeSubscribersRoute: BuyYoutubeSubscribersRoute,
   BuyYoutubeViewsRoute: BuyYoutubeViewsRoute,
+  ServicesRoute: ServicesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
