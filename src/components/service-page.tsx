@@ -144,12 +144,6 @@ export function ServicePage({ service }: Props) {
             >
               Commencer maintenant →
             </a>
-            <a
-              href="/services"
-              className="inline-flex items-center rounded-xl bg-secondary/70 px-6 py-3.5 font-medium border border-border hover:bg-secondary transition"
-            >
-              Voir tous les tarifs
-            </a>
           </div>
         </div>
       </section>
