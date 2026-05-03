@@ -1,15 +1,13 @@
 import { createFileRoute, notFound } from "@tanstack/react-router";
 import { ServicePage } from "@/components/service-page";
-import { isLocale } from "@/i18n/config";
-import { findServiceBySlug } from "@/i18n/slugs";
+import { findServiceAndLocaleBySlug } from "@/i18n/slugs";
 import { t as getT } from "@/i18n/translations";
 
-export const Route = createFileRoute("/$locale/$slug")({
+export const Route = createFileRoute("/$slug")({
   loader: ({ params }) => {
-    if (!isLocale(params.locale)) throw notFound();
-    const service = findServiceBySlug(params.locale, params.slug);
-    if (!service) throw notFound();
-    return { service, locale: params.locale };
+    const found = findServiceAndLocaleBySlug(params.slug);
+    if (!found) throw notFound();
+    return found;
   },
   head: ({ loaderData }) => {
     if (!loaderData) return { meta: [] };
@@ -27,7 +25,7 @@ export const Route = createFileRoute("/$locale/$slug")({
   },
   component: Page,
   errorComponent: ({ error }) => <div className="container mx-auto py-20">{error.message}</div>,
-  notFoundComponent: () => <div className="container mx-auto py-20 text-center">Service not found.</div>,
+  notFoundComponent: () => <div className="container mx-auto py-20 text-center">Page not found.</div>,
 });
 
 function Page() {

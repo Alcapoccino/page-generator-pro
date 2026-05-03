@@ -33,9 +33,8 @@ import { Route as BuyGoogleReviewsRouteImport } from './routes/buy-google-review
 import { Route as BuyFacebookLikesRouteImport } from './routes/buy-facebook-likes'
 import { Route as BuyFacebookFollowersRouteImport } from './routes/buy-facebook-followers'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as SlugRouteImport } from './routes/$slug'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as LocaleIndexRouteImport } from './routes/$locale.index'
-import { Route as LocaleSlugRouteImport } from './routes/$locale.$slug'
 
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
@@ -157,24 +156,20 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SlugRoute = SlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LocaleIndexRoute = LocaleIndexRouteImport.update({
-  id: '/$locale/',
-  path: '/$locale/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LocaleSlugRoute = LocaleSlugRouteImport.update({
-  id: '/$locale/$slug',
-  path: '/$locale/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$slug': typeof SlugRoute
   '/auth': typeof AuthRoute
   '/buy-facebook-followers': typeof BuyFacebookFollowersRoute
   '/buy-facebook-likes': typeof BuyFacebookLikesRoute
@@ -199,11 +194,10 @@ export interface FileRoutesByFullPath {
   '/buy-youtube-subscribers': typeof BuyYoutubeSubscribersRoute
   '/buy-youtube-views': typeof BuyYoutubeViewsRoute
   '/services': typeof ServicesRoute
-  '/$locale/$slug': typeof LocaleSlugRoute
-  '/$locale/': typeof LocaleIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/$slug': typeof SlugRoute
   '/auth': typeof AuthRoute
   '/buy-facebook-followers': typeof BuyFacebookFollowersRoute
   '/buy-facebook-likes': typeof BuyFacebookLikesRoute
@@ -228,12 +222,11 @@ export interface FileRoutesByTo {
   '/buy-youtube-subscribers': typeof BuyYoutubeSubscribersRoute
   '/buy-youtube-views': typeof BuyYoutubeViewsRoute
   '/services': typeof ServicesRoute
-  '/$locale/$slug': typeof LocaleSlugRoute
-  '/$locale': typeof LocaleIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/$slug': typeof SlugRoute
   '/auth': typeof AuthRoute
   '/buy-facebook-followers': typeof BuyFacebookFollowersRoute
   '/buy-facebook-likes': typeof BuyFacebookLikesRoute
@@ -258,13 +251,12 @@ export interface FileRoutesById {
   '/buy-youtube-subscribers': typeof BuyYoutubeSubscribersRoute
   '/buy-youtube-views': typeof BuyYoutubeViewsRoute
   '/services': typeof ServicesRoute
-  '/$locale/$slug': typeof LocaleSlugRoute
-  '/$locale/': typeof LocaleIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/$slug'
     | '/auth'
     | '/buy-facebook-followers'
     | '/buy-facebook-likes'
@@ -289,11 +281,10 @@ export interface FileRouteTypes {
     | '/buy-youtube-subscribers'
     | '/buy-youtube-views'
     | '/services'
-    | '/$locale/$slug'
-    | '/$locale/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/$slug'
     | '/auth'
     | '/buy-facebook-followers'
     | '/buy-facebook-likes'
@@ -318,11 +309,10 @@ export interface FileRouteTypes {
     | '/buy-youtube-subscribers'
     | '/buy-youtube-views'
     | '/services'
-    | '/$locale/$slug'
-    | '/$locale'
   id:
     | '__root__'
     | '/'
+    | '/$slug'
     | '/auth'
     | '/buy-facebook-followers'
     | '/buy-facebook-likes'
@@ -347,12 +337,11 @@ export interface FileRouteTypes {
     | '/buy-youtube-subscribers'
     | '/buy-youtube-views'
     | '/services'
-    | '/$locale/$slug'
-    | '/$locale/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  SlugRoute: typeof SlugRoute
   AuthRoute: typeof AuthRoute
   BuyFacebookFollowersRoute: typeof BuyFacebookFollowersRoute
   BuyFacebookLikesRoute: typeof BuyFacebookLikesRoute
@@ -377,8 +366,6 @@ export interface RootRouteChildren {
   BuyYoutubeSubscribersRoute: typeof BuyYoutubeSubscribersRoute
   BuyYoutubeViewsRoute: typeof BuyYoutubeViewsRoute
   ServicesRoute: typeof ServicesRoute
-  LocaleSlugRoute: typeof LocaleSlugRoute
-  LocaleIndexRoute: typeof LocaleIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -551,6 +538,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$slug': {
+      id: '/$slug'
+      path: '/$slug'
+      fullPath: '/$slug'
+      preLoaderRoute: typeof SlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -558,25 +552,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/$locale/': {
-      id: '/$locale/'
-      path: '/$locale'
-      fullPath: '/$locale/'
-      preLoaderRoute: typeof LocaleIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/$locale/$slug': {
-      id: '/$locale/$slug'
-      path: '/$locale/$slug'
-      fullPath: '/$locale/$slug'
-      preLoaderRoute: typeof LocaleSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  SlugRoute: SlugRoute,
   AuthRoute: AuthRoute,
   BuyFacebookFollowersRoute: BuyFacebookFollowersRoute,
   BuyFacebookLikesRoute: BuyFacebookLikesRoute,
@@ -601,8 +582,6 @@ const rootRouteChildren: RootRouteChildren = {
   BuyYoutubeSubscribersRoute: BuyYoutubeSubscribersRoute,
   BuyYoutubeViewsRoute: BuyYoutubeViewsRoute,
   ServicesRoute: ServicesRoute,
-  LocaleSlugRoute: LocaleSlugRoute,
-  LocaleIndexRoute: LocaleIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

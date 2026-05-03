@@ -62,11 +62,24 @@ export function buildSlug(locale: Locale, service: Service): string {
 
 export function buildPath(locale: Locale, service: Service): string {
   if (locale === "en") return `/${service.slug}`;
-  return `/${locale}/${buildSlug(locale, service)}`;
+  return `/${buildSlug(locale, service)}`;
 }
 
 export function findServiceBySlug(locale: Locale, slug: string): Service | undefined {
   return services.find((s) => buildSlug(locale, s) === slug);
+}
+
+export function findServiceAndLocaleBySlug(slug: string): { service: Service; locale: Locale } | undefined {
+  // Try English (the original slug)
+  const en = services.find((s) => s.slug === slug);
+  if (en) return { service: en, locale: "en" };
+  // Try every other locale
+  for (const locale of Object.keys(ACTION) as Locale[]) {
+    if (locale === "en") continue;
+    const svc = services.find((s) => buildSlug(locale, s) === slug);
+    if (svc) return { service: svc, locale };
+  }
+  return undefined;
 }
 
 export function allLocalizedSlugs(): { locale: Locale; slug: string; service: Service }[] {

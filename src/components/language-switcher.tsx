@@ -12,7 +12,7 @@ export function LanguageSwitcher({ currentLocale = "en" as Locale, currentServic
       const svc = services.find((s) => s.slug === currentServiceSlug);
       if (svc) return buildPath(loc, svc);
     }
-    return loc === "en" ? "/" : `/${loc}`;
+    return "/";
   };
 
   return (
