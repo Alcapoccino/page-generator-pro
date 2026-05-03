@@ -15,14 +15,14 @@ export const Route = createFileRoute("/$locale/")({
     const t = getT(loaderData.locale);
     return {
       meta: [
-        { title: t.meta.home.title },
-        { name: "description", content: t.meta.home.description },
+        { title: t.meta.title("Instagram", t.metric.followers) },
+        { name: "description", content: t.meta.description("Instagram", t.metric.followers) },
       ],
     };
   },
   component: LocaleHome,
   errorComponent: ({ error }) => <div className="container mx-auto py-20">{error.message}</div>,
-  notFoundComponent: () => <div className="container mx-auto py-20 text-center">Locale not found.</div>,
+  notFoundComponent: () => <div className="container mx-auto py-20 text-center">404</div>,
 });
 
 function LocaleHome() {
@@ -41,26 +41,28 @@ function LocaleHome() {
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/40 backdrop-blur px-3 py-1 text-xs">
               <span className="size-1.5 rounded-full bg-success animate-pulse" />
-              {t.home.badge}
+              {t.hero.badge}
             </span>
             <h1 className="mt-6 font-display text-5xl md:text-7xl font-bold leading-[1.02] text-gradient">
-              {t.home.title}
+              BoostFollowers
             </h1>
-            <p className="mt-6 text-lg text-muted-foreground max-w-2xl">{t.home.subtitle}</p>
+            <p className="mt-6 text-lg text-muted-foreground max-w-2xl">
+              {t.hero.description("Instagram / TikTok / YouTube", t.metric.followers)}
+            </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href="/auth" className="inline-flex items-center gap-2 rounded-xl bg-gradient-primary text-primary-foreground px-6 py-3.5 font-medium shadow-glow hover:opacity-90 transition">
-                {t.home.ctaSignup} <ArrowRight className="size-4" />
+                {t.hero.ctaSignup} <ArrowRight className="size-4" />
               </a>
               <a href={`/${locale}#services`} className="inline-flex items-center rounded-xl bg-secondary/70 backdrop-blur px-6 py-3.5 font-medium border border-border hover:bg-secondary transition">
-                {t.home.ctaPricing}
+                {t.pricing.seeAll}
               </a>
             </div>
             <div className="mt-10 flex flex-wrap gap-3">
               {[
-                { icon: Zap, label: t.home.feat1 },
-                { icon: Shield, label: t.home.feat2 },
-                { icon: MessageCircle, label: t.home.feat3 },
-                { icon: Sparkles, label: t.home.feat4 },
+                { icon: Zap, label: t.hero.fastDelivery },
+                { icon: Shield, label: t.hero.securePayments },
+                { icon: MessageCircle, label: t.hero.support247 },
+                { icon: Sparkles, label: "200+" },
               ].map(({ icon: Icon, label }) => (
                 <div key={label} className="inline-flex items-center gap-2.5 rounded-xl bg-card/60 backdrop-blur border border-border px-4 py-2.5 text-sm">
                   <Icon className="size-4 text-accent" />
@@ -73,9 +75,6 @@ function LocaleHome() {
       </section>
 
       <section id="services" className="container mx-auto px-6 py-24">
-        <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
-          <h2 className="font-display text-3xl md:text-4xl font-bold">{t.home.servicesTitle}</h2>
-        </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {Object.entries(grouped).map(([platform, items]) => (
             <div key={platform} className="rounded-2xl border border-border bg-gradient-card backdrop-blur p-6 hover:border-primary/40 transition">
@@ -87,7 +86,7 @@ function LocaleHome() {
                     <li key={s.slug}>
                       <a href={buildPath(locale, s)} className="flex items-center justify-between text-muted-foreground hover:text-foreground transition">
                         <span>{s.platform} {metricLabel}</span>
-                        <span className="text-xs text-accent">{t.home.from} {s.startPrice}</span>
+                        <span className="text-xs text-accent">{t.pricing.startingAt} {s.startPrice}</span>
                       </a>
                     </li>
                   );
