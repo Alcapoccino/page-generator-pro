@@ -23,7 +23,6 @@ export function SiteHeader() {
           >
             Create account
           </a>
-          </a>
         </div>
       </div>
     </header>
