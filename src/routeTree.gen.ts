@@ -9,7 +9,9 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as BuyYoutubeViewsRouteImport } from './routes/buy-youtube-views'
 import { Route as BuyYoutubeSubscribersRouteImport } from './routes/buy-youtube-subscribers'
 import { Route as BuyYoutubeLikesRouteImport } from './routes/buy-youtube-likes'
@@ -36,9 +38,19 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as SlugRouteImport } from './routes/$slug'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BuyYoutubeViewsRoute = BuyYoutubeViewsRouteImport.update({
@@ -193,7 +205,9 @@ export interface FileRoutesByFullPath {
   '/buy-youtube-likes': typeof BuyYoutubeLikesRoute
   '/buy-youtube-subscribers': typeof BuyYoutubeSubscribersRoute
   '/buy-youtube-views': typeof BuyYoutubeViewsRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -221,7 +235,9 @@ export interface FileRoutesByTo {
   '/buy-youtube-likes': typeof BuyYoutubeLikesRoute
   '/buy-youtube-subscribers': typeof BuyYoutubeSubscribersRoute
   '/buy-youtube-views': typeof BuyYoutubeViewsRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -250,7 +266,9 @@ export interface FileRoutesById {
   '/buy-youtube-likes': typeof BuyYoutubeLikesRoute
   '/buy-youtube-subscribers': typeof BuyYoutubeSubscribersRoute
   '/buy-youtube-views': typeof BuyYoutubeViewsRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -280,7 +298,9 @@ export interface FileRouteTypes {
     | '/buy-youtube-likes'
     | '/buy-youtube-subscribers'
     | '/buy-youtube-views'
+    | '/robots.txt'
     | '/services'
+    | '/sitemap.xml'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -308,7 +328,9 @@ export interface FileRouteTypes {
     | '/buy-youtube-likes'
     | '/buy-youtube-subscribers'
     | '/buy-youtube-views'
+    | '/robots.txt'
     | '/services'
+    | '/sitemap.xml'
   id:
     | '__root__'
     | '/'
@@ -336,7 +358,9 @@ export interface FileRouteTypes {
     | '/buy-youtube-likes'
     | '/buy-youtube-subscribers'
     | '/buy-youtube-views'
+    | '/robots.txt'
     | '/services'
+    | '/sitemap.xml'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -365,16 +389,32 @@ export interface RootRouteChildren {
   BuyYoutubeLikesRoute: typeof BuyYoutubeLikesRoute
   BuyYoutubeSubscribersRoute: typeof BuyYoutubeSubscribersRoute
   BuyYoutubeViewsRoute: typeof BuyYoutubeViewsRoute
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
   ServicesRoute: typeof ServicesRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/buy-youtube-views': {
@@ -581,7 +621,9 @@ const rootRouteChildren: RootRouteChildren = {
   BuyYoutubeLikesRoute: BuyYoutubeLikesRoute,
   BuyYoutubeSubscribersRoute: BuyYoutubeSubscribersRoute,
   BuyYoutubeViewsRoute: BuyYoutubeViewsRoute,
+  RobotsDottxtRoute: RobotsDottxtRoute,
   ServicesRoute: ServicesRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
