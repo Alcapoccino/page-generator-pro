@@ -113,7 +113,7 @@ const en: Translation = {
   },
   cta: { title: (p) => `Ready to boost your ${p}?`, subtitle: "Join thousands of creators who trust BoostFollowers.", button: "Order now →" },
   header: { signin: "Sign in", signup: "Create account" },
-  meta: { title: (p, m) => `Buy ${p} ${m} — BoostFollowers`, description: (p, m) => `Buy real ${p} ${m}, fast delivery, secure payments. The #1 social growth platform since 2011.` },
+  meta: { title: (p, m) => `Buy ${p} ${m} — Real, Cheap & Fast Delivery | Boost ${p}`, description: (p, m) => `Buy real ${p} ${m} cheap and fast. Boost your ${p} account with high-quality ${m}, instant delivery, secure payment. #1 social growth platform since 2011.` },
 };
 
 const fr: Translation = {
@@ -167,7 +167,7 @@ const fr: Translation = {
   },
   cta: { title: (p) => `Prêt à booster votre ${p} ?`, subtitle: "Rejoignez des milliers de créateurs qui font confiance à BoostFollowers.", button: "Commander maintenant →" },
   header: { signin: "Se connecter", signup: "Créer un compte" },
-  meta: { title: (p, m) => `Acheter des ${m} ${p} — BoostFollowers`, description: (p, m) => `Achetez de vrais ${m} ${p}, livraison rapide, paiements sécurisés. La plateforme n°1 de croissance sociale depuis 2011.` },
+  meta: { title: (p, m) => `Acheter des ${m} ${p} pas cher — Livraison rapide | Booster ${p}`, description: (p, m) => `Achetez de vrais ${m} ${p} pas cher et rapidement. Boostez votre compte ${p} avec des ${m} de qualité, livraison instantanée, paiement sécurisé. Plateforme n°1 depuis 2011.` },
 };
 
 const es: Translation = {
@@ -219,7 +219,7 @@ const es: Translation = {
   },
   cta: { title: (p) => `¿Listo para impulsar tu ${p}?`, subtitle: "Únete a miles de creadores que confían en BoostFollowers.", button: "Pedir ahora →" },
   header: { signin: "Iniciar sesión", signup: "Crear cuenta" },
-  meta: { title: (p, m) => `Comprar ${m} de ${p} — BoostFollowers`, description: (p, m) => `Compra ${m} reales de ${p}, entrega rápida, pagos seguros. La plataforma n°1 de crecimiento social desde 2011.` },
+  meta: { title: (p, m) => `Comprar ${m} de ${p} baratos — Entrega rápida | Impulsar ${p}`, description: (p, m) => `Compra ${m} reales de ${p} baratos y rápidos. Impulsa tu cuenta de ${p} con ${m} de calidad, entrega instantánea, pago seguro. Plataforma n°1 desde 2011.` },
 };
 
 const de: Translation = {
@@ -271,7 +271,7 @@ const de: Translation = {
   },
   cta: { title: (p) => `Bereit, Ihr ${p} zu boosten?`, subtitle: "Schließen Sie sich Tausenden Creatoren an, die BoostFollowers vertrauen.", button: "Jetzt bestellen →" },
   header: { signin: "Anmelden", signup: "Konto erstellen" },
-  meta: { title: (p, m) => `${p} ${m} kaufen — BoostFollowers`, description: (p, m) => `Echte ${p} ${m} kaufen, schnelle Lieferung, sichere Zahlungen. Die Nr. 1 für Social Growth seit 2011.` },
+  meta: { title: (p, m) => `${p} ${m} kaufen günstig — Schnelle Lieferung | ${p} boosten`, description: (p, m) => `Echte ${p} ${m} günstig und schnell kaufen. Boosten Sie Ihren ${p}-Account mit hochwertigen ${m}, sofortige Lieferung, sichere Zahlung. Nr. 1 Plattform seit 2011.` },
 };
 
 const pt: Translation = {
@@ -323,7 +323,7 @@ const pt: Translation = {
   },
   cta: { title: (p) => `Pronto para impulsionar o seu ${p}?`, subtitle: "Junte-se a milhares de criadores que confiam na BoostFollowers.", button: "Encomendar agora →" },
   header: { signin: "Entrar", signup: "Criar conta" },
-  meta: { title: (p, m) => `Comprar ${m} no ${p} — BoostFollowers`, description: (p, m) => `Compre ${m} reais no ${p}, entrega rápida, pagamentos seguros. A plataforma n°1 de crescimento social desde 2011.` },
+  meta: { title: (p, m) => `Comprar ${m} no ${p} barato — Entrega rápida | Impulsionar ${p}`, description: (p, m) => `Compre ${m} reais no ${p} barato e rápido. Impulsione a sua conta ${p} com ${m} de qualidade, entrega instantânea, pagamento seguro. Plataforma n°1 desde 2011.` },
 };
 
 const ar: Translation = {
@@ -375,7 +375,7 @@ const ar: Translation = {
   },
   cta: { title: (p) => `جاهز لتعزيز ${p} الخاص بك؟`, subtitle: "انضم إلى آلاف المبدعين الذين يثقون بـ BoostFollowers.", button: "اطلب الآن ←" },
   header: { signin: "تسجيل الدخول", signup: "إنشاء حساب" },
-  meta: { title: (p, m) => `شراء ${m} ${p} — BoostFollowers`, description: (p, m) => `اشترِ ${m} ${p} حقيقية، تسليم سريع، مدفوعات آمنة. منصة النمو الاجتماعي رقم 1 منذ 2011.` },
+  meta: { title: (p, m) => `شراء ${m} ${p} رخيص — تسليم سريع | تعزيز ${p}`, description: (p, m) => `اشترِ ${m} ${p} حقيقية رخيصة وسريعة. عزّز حسابك على ${p} بـ ${m} عالية الجودة، تسليم فوري، دفع آمن. المنصة رقم 1 منذ 2011.` },
 };
 
 const zh: Translation = {
@@ -427,7 +427,7 @@ const zh: Translation = {
   },
   cta: { title: (p) => `准备好提升您的${p}了吗？`, subtitle: "加入数千位信任 BoostFollowers 的创作者。", button: "立即订购 →" },
   header: { signin: "登录", signup: "创建账户" },
-  meta: { title: (p, m) => `购买${p}${m} — BoostFollowers`, description: (p, m) => `购买真实的${p}${m}，快速送达，安全支付。自2011年以来的第一社交增长平台。` },
+  meta: { title: (p, m) => `购买${p}${m}便宜 — 快速送达 | 提升${p}`, description: (p, m) => `便宜快速购买真实的${p}${m}。用高质量${m}提升您的${p}账户，即时送达，安全支付。自2011年以来的第一平台。` },
 };
 
 const ja: Translation = {
@@ -479,7 +479,7 @@ const ja: Translation = {
   },
   cta: { title: (p) => `${p}をブーストする準備はできましたか？`, subtitle: "BoostFollowers を信頼する数千人のクリエイターに参加。", button: "今すぐ注文 →" },
   header: { signin: "ログイン", signup: "アカウント作成" },
-  meta: { title: (p, m) => `${p}の${m}を購入 — BoostFollowers`, description: (p, m) => `本物の${p}の${m}を購入、迅速配信、安全な支払い。2011年以来のNo.1ソーシャル成長プラットフォーム。` },
+  meta: { title: (p, m) => `${p}の${m}を購入 安い — 迅速配信 | ${p}ブースト`, description: (p, m) => `本物の${p}の${m}を安く迅速に購入。高品質な${m}で${p}アカウントをブースト、即時配信、安全な支払い。2011年以来のNo.1プラットフォーム。` },
 };
 
 export const translations: Record<Locale, Translation> = { en, fr, es, de, pt, ar, zh, ja };
