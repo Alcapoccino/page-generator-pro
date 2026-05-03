@@ -15,13 +15,13 @@ export function SiteHeader() {
             href="/auth"
             className="hidden sm:inline-flex items-center px-4 py-2 text-sm rounded-md text-foreground/90 hover:bg-secondary transition"
           >
-            Se connecter
+            Sign in
           </a>
           <a
             href="/auth"
             className="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md bg-gradient-primary text-primary-foreground shadow-glow hover:opacity-90 transition"
           >
-            Créer mon compte
+            Create account
           </a>
         </div>
       </div>

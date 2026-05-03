@@ -1,42 +1,42 @@
 export type Service = {
   slug: string;
   platform: string;
-  metric: string; // followers, likes, views, etc.
-  metricFr: string;
+  metric: string;
+  metricEn: string;
   title: string;
   shortLabel: string;
   description: string;
   heroDescription: string;
-  unitLabel: string; // "abonnés", "likes", "vues"
+  unitLabel: string;
   startPrice: string;
   deliveryTime: string;
   faqs: { q: string; a: string }[];
 };
 
-const baseFaqs = (platform: string, metricFr: string, unitLabel: string): { q: string; a: string }[] => [
+const baseFaqs = (platform: string, metricEn: string, unitLabel: string): { q: string; a: string }[] => [
   {
-    q: `Est-ce sûr d'acheter des ${metricFr} ${platform} ?`,
-    a: `Oui. Nous utilisons des méthodes conformes aux conditions d'utilisation de ${platform} et ne demandons jamais votre mot de passe. Votre compte reste 100% sécurisé.`,
+    q: `Is it safe to buy ${metricEn} on ${platform}?`,
+    a: `Yes. We use methods that comply with ${platform}'s terms of service and we never ask for your password. Your account stays 100% secure.`,
   },
   {
-    q: `Combien de temps prend la livraison ?`,
-    a: `La livraison démarre en quelques minutes après confirmation de la commande, à un rythme naturel pour préserver votre compte.`,
+    q: `How long does delivery take?`,
+    a: `Delivery starts within minutes after your order is confirmed, at a natural pace to keep your account safe.`,
   },
   {
-    q: `Quels moyens de paiement acceptez-vous ?`,
-    a: `Nous acceptons les virements bancaires SEPA et les paiements crypto USDC. Tous les paiements sont sécurisés.`,
+    q: `What payment methods do you accept?`,
+    a: `We accept SEPA bank transfers and USDC crypto payments. All payments are fully secured.`,
   },
   {
-    q: `Les ${unitLabel} sont-ils permanents ?`,
-    a: `Nos ${unitLabel} sont de haute qualité et stables. Nous proposons une garantie recharge en cas de baisse anormale.`,
+    q: `Are the ${unitLabel} permanent?`,
+    a: `Our ${unitLabel} are high quality and stable. We offer a refill guarantee in case of any abnormal drop.`,
   },
   {
-    q: `Avez-vous besoin de mon mot de passe ?`,
-    a: `Jamais. Nous avons uniquement besoin du lien public de votre profil ou publication ${platform}.`,
+    q: `Do you need my password?`,
+    a: `Never. We only need the public link of your ${platform} profile or post.`,
   },
   {
-    q: `Puis-je commander plusieurs fois ?`,
-    a: `Oui, vous pouvez recharger votre solde et passer autant de commandes que vous le souhaitez sur l'ensemble de notre catalogue.`,
+    q: `Can I order multiple times?`,
+    a: `Yes, you can top up your balance and place as many orders as you want across our entire catalog.`,
   },
 ];
 
@@ -44,47 +44,47 @@ const def = (
   slug: string,
   platform: string,
   metric: string,
-  metricFr: string,
+  metricEn: string,
   unitLabel: string,
   startPrice: string,
 ): Service => ({
   slug,
   platform,
   metric,
-  metricFr,
+  metricEn,
   unitLabel,
   startPrice,
-  deliveryTime: "Sous quelques minutes",
-  shortLabel: `${metricFr.charAt(0).toUpperCase()}${metricFr.slice(1)} ${platform}`,
-  title: `Acheter des ${metricFr} ${platform}`,
-  description: `Boostez votre ${platform} avec des ${unitLabel} de qualité, livrés rapidement et en toute sécurité.`,
-  heroDescription: `Boostez votre audience ${platform} instantanément. Profitez d'une expertise reconnue depuis 2011 pour faire grimper vos ${unitLabel} sans complication. Que vous soyez artiste indépendant ou influenceur, nos solutions de croissance garantissent des résultats visibles et rapides. Passez commande en 30 secondes et concentrez-vous sur votre passion : nous nous occupons de votre notoriété.`,
-  faqs: baseFaqs(platform, metricFr, unitLabel),
+  deliveryTime: "Within minutes",
+  shortLabel: `${platform} ${metricEn.charAt(0).toUpperCase()}${metricEn.slice(1)}`,
+  title: `Buy ${platform} ${metricEn}`,
+  description: `Boost your ${platform} with high-quality ${unitLabel}, delivered fast and securely.`,
+  heroDescription: `Boost your ${platform} audience instantly. Backed by recognized expertise since 2011, we help your ${unitLabel} grow without any hassle. Whether you're an independent creator or an influencer, our growth solutions deliver fast, visible results. Place your order in 30 seconds and focus on your passion — we'll handle your visibility.`,
+  faqs: baseFaqs(platform, metricEn, unitLabel),
 });
 
 export const services: Service[] = [
-  def("buy-instagram-followers", "Instagram", "followers", "abonnés", "abonnés", "1,99 €"),
-  def("buy-instagram-likes", "Instagram", "likes", "j'aime", "j'aime", "0,99 €"),
-  def("buy-instagram-views", "Instagram", "views", "vues", "vues", "0,99 €"),
-  def("buy-tiktok-followers", "TikTok", "followers", "abonnés", "abonnés", "1,99 €"),
-  def("buy-tiktok-likes", "TikTok", "likes", "j'aime", "j'aime", "0,99 €"),
-  def("buy-tiktok-views", "TikTok", "views", "vues", "vues", "0,49 €"),
-  def("buy-facebook-followers", "Facebook", "followers", "abonnés", "abonnés", "2,49 €"),
-  def("buy-facebook-likes", "Facebook", "likes", "j'aime", "j'aime", "1,49 €"),
-  def("buy-twitter-followers", "Twitter", "followers", "abonnés", "abonnés", "2,99 €"),
-  def("buy-x-followers", "X (Twitter)", "followers", "abonnés", "abonnés", "2,99 €"),
-  def("buy-youtube-subscribers", "YouTube", "subscribers", "abonnés", "abonnés", "4,99 €"),
-  def("buy-youtube-views", "YouTube", "views", "vues", "vues", "1,99 €"),
-  def("buy-youtube-likes", "YouTube", "likes", "j'aime", "j'aime", "1,49 €"),
-  def("buy-twitch-followers", "Twitch", "followers", "abonnés", "abonnés", "2,99 €"),
-  def("buy-twitch-views", "Twitch", "vues", "vues", "vues", "1,99 €"),
-  def("buy-kick-followers", "Kick", "followers", "abonnés", "abonnés", "2,99 €"),
-  def("buy-spotify-followers", "Spotify", "followers", "abonnés", "abonnés", "3,49 €"),
-  def("buy-spotify-plays", "Spotify", "plays", "écoutes", "écoutes", "1,49 €"),
-  def("buy-soundcloud-plays", "SoundCloud", "plays", "écoutes", "écoutes", "1,49 €"),
-  def("buy-linkedin-connections", "LinkedIn", "connections", "connexions", "connexions", "4,99 €"),
-  def("buy-google-reviews", "Google", "reviews", "avis", "avis", "9,99 €"),
-  def("buy-trustpilot-reviews", "Trustpilot", "reviews", "avis", "avis", "9,99 €"),
+  def("buy-instagram-followers", "Instagram", "followers", "followers", "followers", "$1.99"),
+  def("buy-instagram-likes", "Instagram", "likes", "likes", "likes", "$0.99"),
+  def("buy-instagram-views", "Instagram", "views", "views", "views", "$0.99"),
+  def("buy-tiktok-followers", "TikTok", "followers", "followers", "followers", "$1.99"),
+  def("buy-tiktok-likes", "TikTok", "likes", "likes", "likes", "$0.99"),
+  def("buy-tiktok-views", "TikTok", "views", "views", "views", "$0.49"),
+  def("buy-facebook-followers", "Facebook", "followers", "followers", "followers", "$2.49"),
+  def("buy-facebook-likes", "Facebook", "likes", "likes", "likes", "$1.49"),
+  def("buy-twitter-followers", "Twitter", "followers", "followers", "followers", "$2.99"),
+  def("buy-x-followers", "X (Twitter)", "followers", "followers", "followers", "$2.99"),
+  def("buy-youtube-subscribers", "YouTube", "subscribers", "subscribers", "subscribers", "$4.99"),
+  def("buy-youtube-views", "YouTube", "views", "views", "views", "$1.99"),
+  def("buy-youtube-likes", "YouTube", "likes", "likes", "likes", "$1.49"),
+  def("buy-twitch-followers", "Twitch", "followers", "followers", "followers", "$2.99"),
+  def("buy-twitch-views", "Twitch", "views", "views", "views", "$1.99"),
+  def("buy-kick-followers", "Kick", "followers", "followers", "followers", "$2.99"),
+  def("buy-spotify-followers", "Spotify", "followers", "followers", "followers", "$3.49"),
+  def("buy-spotify-plays", "Spotify", "plays", "plays", "plays", "$1.49"),
+  def("buy-soundcloud-plays", "SoundCloud", "plays", "plays", "plays", "$1.49"),
+  def("buy-linkedin-connections", "LinkedIn", "connections", "connections", "connections", "$4.99"),
+  def("buy-google-reviews", "Google", "reviews", "reviews", "reviews", "$9.99"),
+  def("buy-trustpilot-reviews", "Trustpilot", "reviews", "reviews", "reviews", "$9.99"),
 ];
 
 export const getService = (slug: string) => services.find((s) => s.slug === slug);
