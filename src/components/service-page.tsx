@@ -4,7 +4,7 @@ import { Sparkles, Zap, Shield, MessageCircle, Star, Settings, Check } from "luc
 type Props = { service: Service };
 
 export function ServicePage({ service }: Props) {
-  const { platform, metricFr, unitLabel, title, heroDescription, startPrice, faqs } = service;
+  const { platform, metricEn, unitLabel, title, heroDescription, startPrice, faqs } = service;
 
   return (
     <>
@@ -15,11 +15,11 @@ export function ServicePage({ service }: Props) {
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/40 backdrop-blur px-3 py-1 text-xs">
               <span className="size-1.5 rounded-full bg-success animate-pulse" />
-              Service actif 24h/24
+              Service active 24/7
             </span>
 
             <h1 className="mt-6 font-display text-5xl md:text-6xl font-bold leading-[1.05] text-gradient">
-              {title} <br /> pour booster votre crédibilité
+              {title} <br /> to boost your credibility
             </h1>
 
             <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-2xl">
@@ -31,21 +31,21 @@ export function ServicePage({ service }: Props) {
                 href="/auth"
                 className="inline-flex items-center gap-2 rounded-xl bg-foreground text-background px-6 py-3.5 font-medium shadow-card hover:bg-foreground/90 transition"
               >
-                Créer mon compte gratuit →
+                Create my free account →
               </a>
               <a
                 href="/auth"
                 className="inline-flex items-center rounded-xl bg-secondary/70 backdrop-blur px-6 py-3.5 font-medium border border-border hover:bg-secondary transition"
               >
-                Se connecter
+                Sign in
               </a>
             </div>
 
             <div className="mt-10 flex flex-wrap gap-3">
               {[
-                { icon: Zap, label: "Livraison démarrée en quelques minutes" },
-                { icon: Shield, label: "Paiements sécurisés" },
-                { icon: MessageCircle, label: "Support 24/7" },
+                { icon: Zap, label: "Delivery starts within minutes" },
+                { icon: Shield, label: "Secure payments" },
+                { icon: MessageCircle, label: "24/7 support" },
               ].map(({ icon: Icon, label }) => (
                 <div
                   key={label}
@@ -65,29 +65,29 @@ export function ServicePage({ service }: Props) {
       {/* WHY */}
       <section className="container mx-auto px-6 py-24">
         <h2 className="font-display text-3xl md:text-4xl font-bold max-w-2xl">
-          Pourquoi choisir BoostFollowers pour vos {metricFr} {platform}
+          Why choose BoostFollowers for your {platform} {metricEn}
         </h2>
         <div className="mt-12 grid md:grid-cols-2 gap-5">
           {[
             {
               icon: Star,
-              title: "Plateforme n°1 au monde",
-              desc: `Depuis 2011, nous sommes la référence mondiale du secteur. Plus de 50 000 clients nous font confiance pour développer leurs réseaux sociaux au quotidien. Notre expérience et notre stabilité font la différence quand il s'agit de choisir un prestataire sérieux.`,
+              title: "World's #1 platform",
+              desc: `Since 2011, we've been the global reference in the industry. More than 50,000 customers trust us daily to grow their social media. Our experience and stability make all the difference when choosing a serious provider.`,
             },
             {
               icon: Zap,
-              title: "Démarrage ultra rapide",
-              desc: `Une fois votre commande validée, la livraison de vos ${unitLabel} ${platform} démarre en quelques minutes. Vous voyez votre compteur grimper sans attendre des jours. Un rythme régulier, naturel, qui renforce votre présence sans effort de votre côté.`,
+              title: "Ultra fast start",
+              desc: `Once your order is confirmed, delivery of your ${platform} ${unitLabel} starts within minutes. You see your numbers climb without waiting days. A steady, natural pace that strengthens your presence effortlessly.`,
             },
             {
               icon: Settings,
-              title: "Plus de 200 services de croissance",
-              desc: `${platform} n'est qu'un début. Notre catalogue couvre TikTok, YouTube, Facebook, Twitter, Spotify et bien d'autres plateformes. Vous centralisez toute votre stratégie de croissance chez un seul prestataire et gagnez un temps précieux.`,
+              title: "200+ growth services",
+              desc: `${platform} is just the beginning. Our catalog covers TikTok, YouTube, Facebook, Twitter, Spotify and many other platforms. Centralize your entire growth strategy with one provider and save valuable time.`,
             },
             {
               icon: Sparkles,
-              title: "Tarifs transparents",
-              desc: `Des tarifs transparents, affichés avant chaque commande. Pas de frais cachés, pas de surprises : vous voyez le tarif exact pour la quantité choisie avant de valider. À partir de ${startPrice}.`,
+              title: "Transparent pricing",
+              desc: `Transparent prices, displayed before every order. No hidden fees, no surprises: you see the exact price for the chosen quantity before checkout. Starting at ${startPrice}.`,
             },
           ].map(({ icon: Icon, title: t, desc }) => (
             <div
@@ -108,24 +108,24 @@ export function ServicePage({ service }: Props) {
       <section className="border-y border-border bg-secondary/20">
         <div className="container mx-auto px-6 py-24">
           <h2 className="font-display text-3xl md:text-4xl font-bold text-center">
-            Comment acheter des {metricFr} {platform} en 3 étapes
+            How to buy {platform} {metricEn} in 3 steps
           </h2>
           <div className="mt-14 grid md:grid-cols-3 gap-5">
             {[
               {
                 n: "1",
-                title: "Créez votre compte",
-                desc: "Inscrivez-vous gratuitement en moins de 30 secondes. Aucune carte bancaire demandée à l'inscription, juste un email et un mot de passe.",
+                title: "Create your account",
+                desc: "Sign up for free in less than 30 seconds. No credit card required at signup, just an email and a password.",
               },
               {
                 n: "2",
-                title: "Alimentez votre solde",
-                desc: "Effectuez un virement bancaire ou un paiement crypto USDC. Votre solde est crédité dès réception du paiement et vous permet de commander autant de services que vous le souhaitez.",
+                title: "Top up your balance",
+                desc: "Make a bank transfer or USDC crypto payment. Your balance is credited as soon as the payment is received and lets you order as many services as you want.",
               },
               {
                 n: "3",
-                title: "Passez commande",
-                desc: `Choisissez le service ${platform} ${metricFr} qui vous convient, collez votre lien de profil, indiquez la quantité et validez. La livraison démarre en quelques minutes.`,
+                title: "Place your order",
+                desc: `Pick the ${platform} ${metricEn} service that fits you, paste your profile link, enter the quantity and confirm. Delivery starts within minutes.`,
               },
             ].map((s) => (
               <div key={s.n} className="rounded-2xl border border-border bg-card/60 backdrop-blur p-7">
@@ -142,7 +142,7 @@ export function ServicePage({ service }: Props) {
               href="/auth"
               className="inline-flex items-center gap-2 rounded-xl bg-gradient-primary text-primary-foreground px-6 py-3.5 font-medium shadow-glow hover:opacity-90 transition"
             >
-              Commencer maintenant →
+              Get started now →
             </a>
           </div>
         </div>
@@ -151,18 +151,18 @@ export function ServicePage({ service }: Props) {
       {/* PRICING */}
       <section className="container mx-auto px-6 py-24">
         <h2 className="font-display text-3xl md:text-4xl font-bold text-center">
-          Combien coûte l'achat de {metricFr} {platform}
+          How much does buying {platform} {metricEn} cost
         </h2>
         <p className="mt-4 text-center text-muted-foreground max-w-2xl mx-auto">
-          Nos forfaits s'adaptent à tous les budgets, du créateur qui débute à l'agence qui gère
-          des dizaines de comptes. Découvrez quelques exemples de tarifs et rendez-vous dans votre
-          espace client pour accéder au catalogue complet.
+          Our packages fit every budget, from beginner creators to agencies managing dozens of
+          accounts. Discover a few sample prices and head to your client area to access the full
+          catalog.
         </p>
         <div className="mt-14 grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
           {[
-            { tier: "STARTER", qty: "100", price: "0,50 $", popular: false },
-            { tier: "POPULAIRE", qty: "500", price: "2,50 $", popular: true },
-            { tier: "PRO", qty: "1000", price: "5,00 $", popular: false },
+            { tier: "STARTER", qty: "100", price: "$0.50", popular: false },
+            { tier: "POPULAR", qty: "500", price: "$2.50", popular: true },
+            { tier: "PRO", qty: "1000", price: "$5.00", popular: false },
           ].map((p) => (
             <div
               key={p.tier}
@@ -172,12 +172,12 @@ export function ServicePage({ service }: Props) {
             >
               {p.popular && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-primary text-primary-foreground text-xs font-semibold px-3 py-1 shadow-glow">
-                  LE PLUS POPULAIRE
+                  MOST POPULAR
                 </span>
               )}
               <p className="text-xs font-semibold tracking-widest text-muted-foreground">{p.tier}</p>
               <p className="mt-4 font-display text-5xl font-bold">{p.qty}</p>
-              <p className="mt-2 text-sm text-muted-foreground">à partir de {p.price}</p>
+              <p className="mt-2 text-sm text-muted-foreground">starting at {p.price}</p>
               <a
                 href="/auth"
                 className={`mt-6 inline-flex w-full items-center justify-center rounded-xl px-6 py-3.5 font-medium transition ${
@@ -186,14 +186,14 @@ export function ServicePage({ service }: Props) {
                     : "bg-foreground text-background hover:bg-foreground/90"
                 }`}
               >
-                Commander
+                Order
               </a>
             </div>
           ))}
         </div>
         <div className="mt-10 flex justify-center">
           <a href="/services" className="inline-flex items-center gap-2 text-primary font-medium hover:underline">
-            Voir tous les tarifs →
+            See all pricing →
           </a>
         </div>
       </section>
@@ -202,16 +202,16 @@ export function ServicePage({ service }: Props) {
       <section className="container mx-auto px-6 py-20">
         <div className="rounded-3xl border border-border bg-gradient-card backdrop-blur p-10">
           <h2 className="font-display text-2xl md:text-3xl font-bold">
-            Une expérience pensée pour les créateurs
+            An experience built for creators
           </h2>
           <div className="mt-8 grid md:grid-cols-3 gap-5 text-sm">
             {[
-              `${unitLabel.charAt(0).toUpperCase()}${unitLabel.slice(1)} de qualité, livrés à un rythme naturel`,
-              "Aucun mot de passe demandé, sécurité garantie",
-              "Garantie recharge en cas de baisse anormale",
-              "Tableau de bord clair pour suivre vos commandes",
-              "Support humain disponible 7j/7",
-              "Tarifs dégressifs sur les grandes quantités",
+              `High-quality ${unitLabel}, delivered at a natural pace`,
+              "No password required, security guaranteed",
+              "Refill guarantee in case of abnormal drop",
+              "Clear dashboard to track your orders",
+              "Human support available 7 days a week",
+              "Volume discounts on large quantities",
             ].map((f) => (
               <div key={f} className="flex items-start gap-3">
                 <span className="mt-0.5 size-5 rounded-md bg-success/15 text-success flex items-center justify-center flex-shrink-0">
@@ -227,7 +227,7 @@ export function ServicePage({ service }: Props) {
       {/* FAQ */}
       <section className="container mx-auto px-6 py-24">
         <h2 className="font-display text-3xl md:text-4xl font-bold text-center">
-          Questions fréquentes sur l'achat de {metricFr} {platform}
+          Frequently asked questions about buying {platform} {metricEn}
         </h2>
         <div className="mt-12 max-w-3xl mx-auto space-y-3">
           {faqs.map((f, i) => (
@@ -254,17 +254,17 @@ export function ServicePage({ service }: Props) {
           <div className="relative flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
               <h2 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground">
-                Prêt à booster votre {platform} ?
+                Ready to boost your {platform}?
               </h2>
               <p className="mt-2 text-primary-foreground/85">
-                Rejoignez des milliers de créateurs qui font confiance à BoostFollowers.
+                Join thousands of creators who trust BoostFollowers.
               </p>
             </div>
             <a
               href="/auth"
               className="inline-flex items-center gap-2 rounded-xl bg-background text-foreground px-6 py-3.5 font-medium hover:bg-background/90 transition"
             >
-              Commander maintenant →
+              Order now →
             </a>
           </div>
         </div>
