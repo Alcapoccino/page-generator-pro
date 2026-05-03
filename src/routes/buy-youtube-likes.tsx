@@ -29,5 +29,5 @@ export const Route = createFileRoute("/buy-youtube-likes")({
 
 function Page() {
   const { service } = Route.useLoaderData();
-  return <ServicePage service={service} />;
+  return <ServicePage service={service} locale="en" />;
 }

@@ -1,3 +1,5 @@
+import { LanguageSwitcher } from "./language-switcher";
+
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border">
@@ -11,6 +13,7 @@ export function SiteHeader() {
           </span>
         </a>
         <div className="flex items-center gap-2">
+          <LanguageSwitcher />
           <a
             href="/auth"
             className="hidden sm:inline-flex items-center px-4 py-2 text-sm rounded-md text-foreground/90 hover:bg-secondary transition"
