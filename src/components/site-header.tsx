@@ -10,12 +10,6 @@ export function SiteHeader() {
             Boost<span className="text-gradient">Followers</span>
           </span>
         </a>
-        <nav className="hidden md:flex items-center gap-7 text-sm text-muted-foreground">
-          <a href="/services" className="hover:text-foreground transition">Services</a>
-          <a href="/buy-instagram-followers" className="hover:text-foreground transition">Instagram</a>
-          <a href="/buy-tiktok-followers" className="hover:text-foreground transition">TikTok</a>
-          <a href="/buy-youtube-subscribers" className="hover:text-foreground transition">YouTube</a>
-        </nav>
         <div className="flex items-center gap-2">
           <a
             href="/auth"
