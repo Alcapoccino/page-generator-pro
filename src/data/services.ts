@@ -58,7 +58,7 @@ const def = (
   shortLabel: `${metricFr.charAt(0).toUpperCase()}${metricFr.slice(1)} ${platform}`,
   title: `Acheter des ${metricFr} ${platform}`,
   description: `Boostez votre ${platform} avec des ${unitLabel} de qualité, livrés rapidement et en toute sécurité.`,
-  heroDescription: `Développez votre présence ${platform} avec des ${unitLabel} livrés rapidement et sans complication. Depuis 2011, nous accompagnons créateurs, influenceurs et marques du monde entier avec plus de 200 services de croissance sur tous les réseaux sociaux. Commandez en quelques clics, voyez vos chiffres grimper et concentrez-vous sur ce que vous faites de mieux : créer du contenu qui cartonne.`,
+  heroDescription: `Boostez votre audience ${platform} instantanément. Profitez d'une expertise reconnue depuis 2011 pour faire grimper vos ${unitLabel} sans complication. Que vous soyez artiste indépendant ou influenceur, nos solutions de croissance garantissent des résultats visibles et rapides. Passez commande en 30 secondes et concentrez-vous sur votre passion : nous nous occupons de votre notoriété.`,
   faqs: baseFaqs(platform, metricFr, unitLabel),
 });
 
