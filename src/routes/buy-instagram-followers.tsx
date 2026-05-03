@@ -29,5 +29,5 @@ export const Route = createFileRoute("/buy-instagram-followers")({
 
 function Page() {
   const { service } = Route.useLoaderData();
-  return <ServicePage service={service} />;
+  return <ServicePage service={service} locale="en" />;
 }

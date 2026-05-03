@@ -29,5 +29,5 @@ export const Route = createFileRoute("/buy-spotify-followers")({
 
 function Page() {
   const { service } = Route.useLoaderData();
-  return <ServicePage service={service} />;
+  return <ServicePage service={service} locale="en" />;
 }
