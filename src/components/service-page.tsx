@@ -154,6 +154,56 @@ export function ServicePage({ service }: Props) {
         </div>
       </section>
 
+      {/* PRICING */}
+      <section className="container mx-auto px-6 py-24">
+        <h2 className="font-display text-3xl md:text-4xl font-bold text-center">
+          Combien coûte l'achat de {metricFr} {platform}
+        </h2>
+        <p className="mt-4 text-center text-muted-foreground max-w-2xl mx-auto">
+          Nos forfaits s'adaptent à tous les budgets, du créateur qui débute à l'agence qui gère
+          des dizaines de comptes. Découvrez quelques exemples de tarifs et rendez-vous dans votre
+          espace client pour accéder au catalogue complet.
+        </p>
+        <div className="mt-14 grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+          {[
+            { tier: "STARTER", qty: "100", price: "0,50 $", popular: false },
+            { tier: "POPULAIRE", qty: "500", price: "2,50 $", popular: true },
+            { tier: "PRO", qty: "1000", price: "5,00 $", popular: false },
+          ].map((p) => (
+            <div
+              key={p.tier}
+              className={`relative rounded-2xl border bg-card/60 backdrop-blur p-7 transition ${
+                p.popular ? "border-primary shadow-glow" : "border-border hover:border-primary/40"
+              }`}
+            >
+              {p.popular && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-primary text-primary-foreground text-xs font-semibold px-3 py-1 shadow-glow">
+                  LE PLUS POPULAIRE
+                </span>
+              )}
+              <p className="text-xs font-semibold tracking-widest text-muted-foreground">{p.tier}</p>
+              <p className="mt-4 font-display text-5xl font-bold">{p.qty}</p>
+              <p className="mt-2 text-sm text-muted-foreground">à partir de {p.price}</p>
+              <a
+                href="/auth"
+                className={`mt-6 inline-flex w-full items-center justify-center rounded-xl px-6 py-3.5 font-medium transition ${
+                  p.popular
+                    ? "bg-gradient-primary text-primary-foreground shadow-glow hover:opacity-90"
+                    : "bg-foreground text-background hover:bg-foreground/90"
+                }`}
+              >
+                Commander
+              </a>
+            </div>
+          ))}
+        </div>
+        <div className="mt-10 flex justify-center">
+          <a href="/services" className="inline-flex items-center gap-2 text-primary font-medium hover:underline">
+            Voir tous les tarifs →
+          </a>
+        </div>
+      </section>
+
       {/* FEATURES STRIP */}
       <section className="container mx-auto px-6 py-20">
         <div className="rounded-3xl border border-border bg-gradient-card backdrop-blur p-10">
