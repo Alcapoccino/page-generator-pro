@@ -34,6 +34,7 @@ import { Route as BuyFacebookLikesRouteImport } from './routes/buy-facebook-like
 import { Route as BuyFacebookFollowersRouteImport } from './routes/buy-facebook-followers'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LocaleIndexRouteImport } from './routes/$locale.index'
 import { Route as LocaleSlugRouteImport } from './routes/$locale.$slug'
 
 const ServicesRoute = ServicesRouteImport.update({
@@ -161,6 +162,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocaleIndexRoute = LocaleIndexRouteImport.update({
+  id: '/$locale/',
+  path: '/$locale/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LocaleSlugRoute = LocaleSlugRouteImport.update({
   id: '/$locale/$slug',
   path: '/$locale/$slug',
@@ -194,6 +200,7 @@ export interface FileRoutesByFullPath {
   '/buy-youtube-views': typeof BuyYoutubeViewsRoute
   '/services': typeof ServicesRoute
   '/$locale/$slug': typeof LocaleSlugRoute
+  '/$locale/': typeof LocaleIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -222,6 +229,7 @@ export interface FileRoutesByTo {
   '/buy-youtube-views': typeof BuyYoutubeViewsRoute
   '/services': typeof ServicesRoute
   '/$locale/$slug': typeof LocaleSlugRoute
+  '/$locale': typeof LocaleIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -251,6 +259,7 @@ export interface FileRoutesById {
   '/buy-youtube-views': typeof BuyYoutubeViewsRoute
   '/services': typeof ServicesRoute
   '/$locale/$slug': typeof LocaleSlugRoute
+  '/$locale/': typeof LocaleIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -281,6 +290,7 @@ export interface FileRouteTypes {
     | '/buy-youtube-views'
     | '/services'
     | '/$locale/$slug'
+    | '/$locale/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -309,6 +319,7 @@ export interface FileRouteTypes {
     | '/buy-youtube-views'
     | '/services'
     | '/$locale/$slug'
+    | '/$locale'
   id:
     | '__root__'
     | '/'
@@ -337,6 +348,7 @@ export interface FileRouteTypes {
     | '/buy-youtube-views'
     | '/services'
     | '/$locale/$slug'
+    | '/$locale/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -366,6 +378,7 @@ export interface RootRouteChildren {
   BuyYoutubeViewsRoute: typeof BuyYoutubeViewsRoute
   ServicesRoute: typeof ServicesRoute
   LocaleSlugRoute: typeof LocaleSlugRoute
+  LocaleIndexRoute: typeof LocaleIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -545,6 +558,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$locale/': {
+      id: '/$locale/'
+      path: '/$locale'
+      fullPath: '/$locale/'
+      preLoaderRoute: typeof LocaleIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/$locale/$slug': {
       id: '/$locale/$slug'
       path: '/$locale/$slug'
@@ -582,6 +602,7 @@ const rootRouteChildren: RootRouteChildren = {
   BuyYoutubeViewsRoute: BuyYoutubeViewsRoute,
   ServicesRoute: ServicesRoute,
   LocaleSlugRoute: LocaleSlugRoute,
+  LocaleIndexRoute: LocaleIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
