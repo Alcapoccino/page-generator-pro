@@ -4,11 +4,11 @@ import { services } from "@/data/services";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Tous nos services et tarifs — BoostFollowers" },
+      { title: "All services and pricing — BoostFollowers" },
       {
         name: "description",
         content:
-          "Découvrez tous nos services de croissance sociale et leurs tarifs : Instagram, TikTok, YouTube, Spotify et plus.",
+          "Discover all our social growth services and prices: Instagram, TikTok, YouTube, Spotify and more.",
       },
     ],
   }),
@@ -27,11 +27,10 @@ function Services() {
         <div className="absolute inset-0 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
         <div className="container mx-auto px-6 pt-20 pb-16 relative">
           <h1 className="font-display text-4xl md:text-6xl font-bold text-gradient max-w-3xl">
-            Tous nos services et tarifs
+            All our services and pricing
           </h1>
           <p className="mt-4 text-muted-foreground max-w-2xl">
-            22 services de croissance sociale, transparents et accessibles. Choisissez votre
-            plateforme et lancez-vous.
+            22 social growth services, transparent and accessible. Pick your platform and get started.
           </p>
         </div>
       </section>
@@ -50,12 +49,12 @@ function Services() {
                   <div className="flex items-start justify-between gap-3">
                     <h3 className="font-display font-semibold">{s.shortLabel}</h3>
                     <span className="text-xs px-2 py-1 rounded-md bg-secondary text-accent">
-                      dès {s.startPrice}
+                      from {s.startPrice}
                     </span>
                   </div>
                   <p className="mt-2 text-sm text-muted-foreground">{s.description}</p>
                   <div className="mt-4 text-sm text-accent group-hover:translate-x-1 transition">
-                    Voir le service →
+                    View service →
                   </div>
                 </a>
               ))}
@@ -68,7 +67,7 @@ function Services() {
             href="/auth"
             className="inline-flex items-center gap-2 rounded-xl bg-gradient-primary text-primary-foreground px-6 py-3.5 font-medium shadow-glow hover:opacity-90 transition"
           >
-            Commencer maintenant →
+            Get started now →
           </a>
         </div>
       </section>
