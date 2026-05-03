@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import { services } from "@/data/services";
 
 export function SiteFooter() {
@@ -25,9 +24,9 @@ export function SiteFooter() {
               <ul className="space-y-2 text-muted-foreground">
                 {items.slice(0, 4).map((s) => (
                   <li key={s.slug}>
-                    <Link to={`/${s.slug}`} className="hover:text-foreground transition">
+                    <a href={`/${s.slug}`} className="hover:text-foreground transition">
                       {s.shortLabel}
-                    </Link>
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -37,8 +36,8 @@ export function SiteFooter() {
         <div className="mt-10 pt-6 border-t border-border flex flex-col sm:flex-row justify-between gap-3 text-xs text-muted-foreground">
           <div>© {new Date().getFullYear()} BoostFollowers — Tous droits réservés.</div>
           <div className="flex gap-5">
-            <Link to="/services" className="hover:text-foreground">Tous les tarifs</Link>
-            <Link to="/auth" className="hover:text-foreground">Connexion</Link>
+            <a href="/services" className="hover:text-foreground">Tous les tarifs</a>
+            <a href="/auth" className="hover:text-foreground">Connexion</a>
           </div>
         </div>
       </div>
